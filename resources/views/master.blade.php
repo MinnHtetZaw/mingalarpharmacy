@@ -85,7 +85,7 @@
                         <!-- ============================================================== -->
 
                             {{-- <h2 class="text-white" style="font-weight: 500; font-size:19px">Marlarmyaing Specialist Clinic</h2> --}}
-                            <h2 class="text-white" style="font-weight: 500; font-size:19px">Marlarmyaing Specialist Clinic</h2>
+                            <h2 class="text-white" style="font-weight: 500; font-size:19px">Mingalar Pharmacy</h2>
 
                             <input type="hidden" id="unique_role" value="{{session()->get('user')->role}}">
                             <input type="hidden" id="unique_from_id" value="{{session()->get('from')}}">
