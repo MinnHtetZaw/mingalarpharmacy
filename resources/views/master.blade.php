@@ -85,7 +85,7 @@
                         <!-- ============================================================== -->
 
                             {{-- <h2 class="text-white" style="font-weight: 500; font-size:19px">Marlarmyaing Specialist Clinic</h2> --}}
-                            <h2 class="text-white" style="font-weight: 500; font-size:19px">Mingalar Pharmacy</h2>
+                            <h2 class="text-white" style="font-weight: 500; font-size:19px">မင်္ဂလာ ဆေးနှင့် ဆေးပစ္စည်း</h2>
 
                             <input type="hidden" id="unique_role" value="{{session()->get('user')->role}}">
                             <input type="hidden" id="unique_from_id" value="{{session()->get('from')}}">
@@ -514,7 +514,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Material Pro Admin by wrappixel.com </footer>
+            <footer class="footer"> © 2017-2023 by K-Win Technologies </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

@@ -23,7 +23,7 @@
 
     <?php
     $itemss = '<span id="lenn"></span>';
-    
+
     ?>
 
 
@@ -162,7 +162,7 @@
                                                 <label class="font-weight-bold">@lang('lang.select_customer')</label>
                                                 <select class="form-control m-b-10" id="customer_id" style="width: 100%"
                                                     required onchange="getCustomerInfo(this.value)">
-                                                   
+
                                                 </select>
                                             </div>
 
@@ -370,18 +370,19 @@
                                                             <div class="text-center">
                                                                <address>
                                                                     <h5> &nbsp;<b
-                                                                            class="text-center text-black">Marlar Myaing</b>
+                                                                            class="text-center text-black">မင်္ဂလာ ဆေးနှင့် ဆေးပစ္စည်း</b>
                                                                     </h5>
-                                                                    <h6 class="text-black">Specialist Clinic</h6>
-                                                                    <h6 class="text-black">No.6, Marlar Myaing 4th Street, </h6>
-                                                                    <h6 class="text-black">16th Ward, Hlaing Township</h6>
+                                                                    <h6 class="text-black">ဆိုင်အမှတ် (၁) </h6>
+                                                                    <h6 class="text-black">ဘောလုံးကွင်းတိုက်တန်း အရှေ့ဘက်၊ ဆိပ်ဖြူမြို့။</h6>
+                                                                    <h6 class="text-black">ဆိုင်အမှတ် (၂) </h6>
+                                                                    <h6 class="text-black">စည်ပင်လမ်း၊ ပတ္တမြားဈေးအရှေ့ဘက် ဆိပ်ဖြူမြို့။</h6>
                                                                     <h6 class="text-black"><i
-                                                                            class="fas fa-mobile-alt"></i> 09765111 728, 09765111729 , </h6>
-                                        <h6>01-654764, 01-654765</h6>
+                                                                            class="fas fa-mobile-alt"></i> ၀၉ ၄၀၁ ၅၅၆ ၇၇၅ ,  ၀၉ ၉၇၂ ၄၂၈ ၀၈၄ , </h6>
+                                        {{-- <h6>01-654764, 01-654765</h6> --}}
                                                                 </address>
                                                             </div>
                                                             <div class="pull-right text-left">
-                                    
+
                                     <h6 class="text-black">Voucher Number : {{ $voucher_code }} </h6>
                                     <h6 class="text-black">Voucher Date : <i class="fa fa-calendar"></i> {{date('d-m-Y H:i:s A', strtotime(now()))}} </h6>
                                     <h6 class="text-black">Customer Name :  </h6>
@@ -417,7 +418,7 @@
                                                                             <td class="text-right font-weight-bold"
                                                                                 style="font-size:15px;">Total
                                                                             </td>
-                                                                            <td id="slip_total" 
+                                                                            <td id="slip_total"
                                                                                 style="font-size:15px;">
                                                                             </td>
                                                                         </tr>
@@ -436,7 +437,7 @@
                                                                             </td>
                                                                             <td id="slip_net" style="font-size:15px;"></td>
                                                                         </tr>
-                                                                        
+
                                                                         <tr>
                                                                             <td></td>
                                                                             <td></td>
@@ -445,7 +446,7 @@
                                                                             </td>
                                                                             <td id="slip_pay" style="font-size:15px;"></td>
                                                                         </tr>
-                                                                        
+
                                                                         <tr>
                                                                             <td></td>
                                                                             <td></td>
@@ -473,16 +474,22 @@
                                                 <div class="card card-body printableArea">
                                                     <div style="display:flex;justify-content:space-around">
                                                         <div>
-                                                            <img src="{{ asset('image/marlar_myaing_logo_resized.jpg') }}">
+                                                            <img src="{{ asset('image/mingalar_pharmacy_logo.png') }}" height="140px">
                                                         </div>
 
                                                         <div>
-                                                            <h3 class="mt-1 text-center"> &nbsp;<b
-                                                                    style="font-size: 30px;">Marlar Myaing</b><br/><span>Specialist Clinic</span>
+                                                            <h3 class="mt-1 text-center mb-2"> &nbsp;<b
+                                                                    style="font-size: 21px;">မင်္ဂလာ ဆေးနှင့် ဆေးပစ္စည်း</b>
+
+                                                                    {{-- <br/><span>Specialist Clinic</span> --}}
+
                                                             </h3>
 
-                                                            <p class="mt-2" style="font-size: 20px;text-align:center;"> No.6, Marlar Myaing 4th Street, 16th Ward, Hlaing Township
-                                                                <br /><i class="fas fa-mobile-alt"></i> 09765111728, 09765111729,01-654764,01-654765
+                                                            <p class="mt-2" style="font-size: 12px;text-align:center;">ဆိုင်အမှတ် (၁) -> ဘောလုံးကွင်းတိုက်တန်း အရှေ့ဘက်၊ ဆိပ်ဖြူမြို့။
+                                                                <br/>
+                                                                <br/>ဆိုင်အမှတ် (၂) -> စည်ပင်လမ်း၊ ပတ္တမြားဈေးအရှေ့ဘက် ဆိပ်ဖြူမြို့။
+                                                                <br />
+                                                                <br /><i class="fas fa-mobile-alt"></i> ၀၉ ၄၀၁ ၅၅၆ ၇၇၅, ၀၉ ၉၇၂ ၄၂၈ ၀၈၄
                                                             </p>
                                                         </div>
 
@@ -492,14 +499,14 @@
 
                                                         <div class="col-md-12">
 
-                                    <h3 class="text-info mt-3" style="font-size : 20px"><b>Voucher Number :</b> {{ $voucher_code }} </h3>
+                                    <h3 class="text-info mt-2" style="font-size : 15px"><b>Voucher Number :</b> {{ $voucher_code }} </h3>
 
-                                    <h3 class="text-info mt-2" style="font-size : 20px"><b>Voucher Date :</b> {{ date('d-m-Y', strtotime(now())) }}
+                                    <h3 class="text-info mt-2" style="font-size : 15px"><b>Voucher Date :</b> {{ date('d-m-Y', strtotime(now())) }}
                                     </h3>
-                                    
-                                    <h3 class="text-info mt-3" style="font-size : 20px"><b>Customer Name :</b></h3>
-                                    
-                                    <h3 class="text-info mt-3" style="font-size : 20px"><b>Cashier :</b> {{ session()->get('user')->name }} </h3>
+
+                                    <h3 class="text-info mt-2" style="font-size : 15px"><b>Customer Name :</b></h3>
+
+                                    <h3 class="text-info mt-2 mb-2" style="font-size : 15px"><b>Cashier :</b> {{ session()->get('user')->name }} </h3>
                                 </div>
                                                     </div>
                                                     <div class="row">
@@ -508,19 +515,19 @@
                                                                 <thead class="text-center">
                                                                     <tr>
                                                                         <th
-                                                                            style="font-size:20px; font-weight:bold; height: 15px; border: 2px solid black;">
+                                                                            style="font-size:12px; font-weight:bold; height: 15px; border: 2px solid black;">
                                                                             @lang('lang.number')</th>
                                                                         <th
-                                                                            style="font-size:20px; font-weight:bold; height: 15px; border: 2px solid black;">
+                                                                            style="font-size:12px; font-weight:bold; height: 15px; border: 2px solid black;">
                                                                             @lang('lang.item')</th>
                                                                         <th
-                                                                            style="font-size:20px; font-weight:bold; height: 15px; border: 2px solid black;">
+                                                                            style="font-size:12px; font-weight:bold; height: 15px; border: 2px solid black;">
                                                                             Qty</th>
                                                                         <th
-                                                                            style="font-size:20px; font-weight:bold; height: 15px; border: 2px solid black;">
+                                                                            style="font-size:12px; font-weight:bold; height: 15px; border: 2px solid black;">
                                                                             @lang('lang.price')</th>
                                                                         <th
-                                                                            style="font-size:20px; font-weight:bold; height: 15px; border: 2px solid black;">
+                                                                            style="font-size:12px; font-weight:bold; height: 15px; border: 2px solid black;">
                                                                             @lang('lang.total')</th>
 
                                                                     </tr>
@@ -752,7 +759,7 @@
                 document.getElementById("qr_code").focus();
 
             }
-            
+
             function getCustomerName(){
                var now_customer = $('#now_customer').val();
                return now_customer;
@@ -912,7 +919,7 @@
                             <td>${unit.item.item_name}</td>
                             <td id="name_${unit.id}">${unit.unit_name}</td>
                             <td><select class='form-control' id="price_${unit.id}"><option value='${unit.normal_sale_price}'>Normal Sale - ${unit.normal_sale_price}</option><option value='${unit.whole_sale_price}'>Whole Sale - ${unit.whole_sale_price}</option><option value='${unit.order_price}'>Order Sale - ${unit.order_price}</option></select></td>
-                            
+
                             <td><i class="btn btn-primary" onclick="tgPanel(${unit.id})" ><i class="fas fa-plus"></i> Add</i></td>
                       </tr>`;
                         });
@@ -1444,20 +1451,20 @@
                             }
 
                             var each_sub_total = v.order_qty * selling_price ?? 0;
-                            // <i class="fa fa-plus-circle btnplus font-18" onclick="plusfive(${id})" id="${id}"></i>  
+                            // <i class="fa fa-plus-circle btnplus font-18" onclick="plusfive(${id})" id="${id}"></i>
                             // <i class="fa fa-minus-circle btnminus font-18   "  onclick="minusfive(${id})" id="${id}"></i>
                             html += `<tr class="text-center">
-                        
+
 
                             <td class="text-black">${count_name}</td>
 
-                      
 
-                            <td class="text-black w-25 m-0 p-0" onkeyup="plus(${id})" id="${id}"> 
+
+                            <td class="text-black w-25 m-0 p-0" onkeyup="plus(${id})" id="${id}">
                                 <input type="number" class="form-control w-100 text-black text-center p-0 mt-1" name="" id="nowqty${id}" value="${qty}" style="border: none;border-color: transparent;">
                             </td>
 
-                            <td class="text-black w-25 m-0 p-0" data-price="${selling_price}" > 
+                            <td class="text-black w-25 m-0 p-0" data-price="${selling_price}" >
                                 <input onkeyup="table_edit_price(${v.id},${selling_price})" type="number" class=" form-control w-100 text-black text-center p-0 mt-1" id="nowprice${id}" value="${selling_price}" style="border: none;border-color: transparent;" disabled>
                             </td>
 
@@ -1500,7 +1507,7 @@
                         var sub_total = grandTotal_obj.sub_total;
                         var total_wif_discount = grandTotal_obj.sub_total - discount;
                     }
-                    
+
                     var pay = $('#payable').val();
                     var change = $('#current_change').val();
 
@@ -1510,9 +1517,9 @@
                     $('#slip_net').text(total_wif_discount);
                     $('#slip_pay').text(pay);
                     $('#slip_change').text(change);
-                    
+
                     //$('#total_charges').text(total_wif_discount);
-                    
+
 
                     $("#total_quantity").text(grandTotal_obj.total_qty);
 
@@ -1908,7 +1915,7 @@
                 <button class="btn btn-warning mx-2" data-pendingvoucherno="${v}"><i class="fas fa-arrow-alt-circle-up"></i> ${cust} ${v}</button>
             <p class="bg-danger text-white deletevoucher rounded" data-pendingvoucherno="${v}">x</p>
             </div>
-            
+
             `;
                     $('.pending-voucher').append(btnpending);
                 })
@@ -2000,7 +2007,7 @@
             <button class="btn btn-warning mx-2" data-pendingvoucherno="${pendingvoucherno}"><i class="fas fa-arrow-alt-circle-up"></i> ${cust} ${pendingvoucherno}</button>
         <p class="bg-danger text-white deletevoucher rounded" data-pendingvoucherno="${pendingvoucherno}">x</p>
         </div>
-        
+
         `;
                         $('.pending-voucher').append(btnpending);
                     } else {
@@ -2038,7 +2045,7 @@
                 <button class="btn btn-warning mx-2" data-pendingvoucherno="${v}"><i class="fas fa-arrow-alt-circle-up"></i> Customer${v}</button>
             <p class="bg-danger text-white deletevoucher rounded" data-pendingvoucherno="${v}">x</p>
             </div>
-            
+
             `;
                         $('.pending-voucher').append(btnpending);
                     })
@@ -2111,7 +2118,7 @@
                         console.log(data.last_row);
                         if (data.success == 1) {
                             last_row_id = data.last_row.id;
-                                $('#select_cusid').val(last_row_id);           
+                                $('#select_cusid').val(last_row_id);
                         }
                         swal({
                                 title: "Success!",
@@ -2285,7 +2292,7 @@
                                 <option></option>` + item_html + `
                                 </select>
                                 `;
-                                
+
                                 $('#search_wif_typing').html(main_html);
 
                                 $("#search_wif_typing .select").select2({
@@ -2372,7 +2379,7 @@
                         <option></option>` + item_html + `
                     </select>
                             `;
-                                  
+
                                 $('#search_wif_typing').html(main_html);
 
                                 $("#search_wif_typing .select").select2({
@@ -2534,7 +2541,7 @@
                                 <option></option>` + item_html + `
                                 </select>
                                 `;
-                                
+
                                 $('#search_wif_typing').html(main_html);
 
                                 $("#search_wif_typing .select").select2({
@@ -2624,7 +2631,7 @@
                                     <option></option>` + item_html + `
                                     </select>
                                     `;
-                                    
+
                                     $('#search_wif_typing').html(main_html);
 
                                     $("#search_wif_typing .select").select2({
@@ -2697,7 +2704,7 @@
 
                 $('#discount_amount').val(discount_amount);
 
-                
+
                 $('#with_dis_total').val(parseInt(total_with_dis));
 
                 //$('#sub_total').empty();
@@ -2814,17 +2821,17 @@
                 var mycart = localStorage.getItem('mycart');
                 var mycartobj = JSON.parse(mycart);
                 var grandTotal = localStorage.getItem('grandTotal');
-                
+
                 var grandTotal_obj = JSON.parse(grandTotal);
-                
+
                 var total = $('#gtot').val();
                 var discount = grandTotal_obj.vou_discount;
                 var net_amount = grandTotal_obj.sub_total - discount;
-                
+
                 var pay = $('#payable').val();
                 var change = $('#current_change').val();
                 //Begin A5 Voucher
-         
+
                 var len = mycartobj.length;
                 var htmlcountitem = "";
                 var j = 1;
@@ -2845,48 +2852,48 @@
 
                             var each_sub_total = value.order_qty * selling_price ?? 0;
 
-                    htmlcountitem += ` 
+                    htmlcountitem += `
                 <tr>
-                <td style="font-size:18px;height: 8px; border: 2px solid black;">${i++ }</td>
-                <td style="font-size:18px;height: 8px; border: 2px solid black;">${value.unit_name}</td>
-                <td style="font-size:18px;height: 8px; border: 2px solid black;">${value.order_qty} </td>
-                <td style="font-size:18px;height: 8px; border: 2px solid black;">${selling_price} </td>
-                <td style="font-size:18px;height: 8px; border: 2px solid black;">${each_sub_total} </td>
+                <td style="font-size:15px;height: 8px; border: 2px solid black;">${i++ }</td>
+                <td style="font-size:15px;height: 8px; border: 2px solid black;">${value.unit_name}</td>
+                <td style="font-size:15px;height: 8px; border: 2px solid black;">${value.order_qty} </td>
+                <td style="font-size:15px;height: 8px; border: 2px solid black;">${selling_price} </td>
+                <td style="font-size:15px;height: 8px; border: 2px solid black;">${each_sub_total} </td>
             </tr>
                 `;
                 })
                 htmlcountitem += `
                 <tr>
                                             <td colspan="3"></td>
-                    <td style="font-size:20px;height: 8px; border: 2px solid black; text-align: center;">Total</td>
-                    <td style="font-size:18px;height: 8px; border: 2px solid black; text-align: center;">
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">Total</td>
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">
                         <span id="total_charges_a5">${grandTotal_obj.sub_total}</span></td>
                         </tr>
                                             <tr>
                                             <td colspan="3"></td>
-                    <td style="font-size:20px;height: 8px; border: 2px solid black; text-align: center;">Discount</td>
-                    <td style="font-size:18px;height: 8px; border: 2px solid black; text-align: center;">
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">Discount</td>
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">
                         <span id="discount_a5">${discount}</span></td>
                         </tr>
-                        
+
                                             <tr>
                                             <td colspan="3"></td>
-                    <td style="font-size:20px;height: 8px; border: 2px solid black; text-align: center;">Net</td>
-                    <td style="font-size:18px;height: 8px; border: 2px solid black; text-align: center;">
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">Net</td>
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">
                         <span id="net_a5">${net_amount}</span></td>
                         </tr>
-                        
+
                                             <tr>
                                             <td colspan="3"></td>
-                    <td style="font-size:20px;height: 8px; border: 2px solid black; text-align: center;">Pay</td>
-                    <td style="font-size:18px;height: 8px; border: 2px solid black; text-align: center;">
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">Pay</td>
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">
                         <span id="pay_a5">${pay}</span></td>
                         </tr>
-                        
+
                                             <tr>
                                             <td colspan="3"></td>
-                    <td style="font-size:20px;height: 8px; border: 2px solid black; text-align: center;">Changes</td>
-                    <td style="font-size:18px;height: 8px; border: 2px solid black; text-align: center;">
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">Changes</td>
+                    <td style="font-size:15px;height: 8px; border: 2px solid black; text-align: center;">
                         <span id="change_a5">${change}</span></td>
                         </tr>
             `;
@@ -2895,12 +2902,12 @@
 
                 //End A5 Voucher
             }
-            
+
            function setCountingUnitPrice(value,items){
 
                 let price_type = value;
                 let unit_items = items;
-                
+
                 console.log(items);
                 $('#counting_unit_select').empty();
                 $('#counting_unit_select').append($('<option>').text('Search Units'));
@@ -2918,10 +2925,10 @@
 				});
 				}
 				});
-               
+
             }
-            
-            
+
+
         </script>
 
     @endsection

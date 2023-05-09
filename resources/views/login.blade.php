@@ -38,11 +38,11 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-                <img src="{{asset('image/marlar_myaing_logo.jpg')}}" class="m-l-120 m-b-10" height="150px"> 
+                <img src="{{asset('image/mingalar_pharmacy.jpg')}}" class="m-l-140 m-b-10" height="150px">
                 <form class="login100-form validate-form flex-sb flex-w" action="{{route('loginProcess')}}" method="POST">
                     @csrf
                     <span class="login100-form-title p-b-32 text-success" style="font-size:22px; text-align=center;">
-                        Malarmyaing Specialist Clinic
+                        Mingalar Pharmacy
                     </span>
 
                     <span class="txt1 p-b-11">
