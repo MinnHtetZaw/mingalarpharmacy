@@ -35,7 +35,7 @@
                             <input type="file" name="select_file">
                             <button type="submit" class="btn btn-danger">Import</button>
                         </form>
-                    </div>  
+                    </div>
 
                     <div class="col-md-6">
                         <a href="#" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#create_item">
@@ -45,8 +45,8 @@
                     </div>
 
                 </div>
-             
-         
+
+
 
                 <div class="modal fade" id="create_item" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -150,7 +150,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                     
+
                         <ul class="nav nav-pills m-t-30 m-b-30 ">
                             <li class="nav-item">
                                 <a href="#navpills-1" class="nav-link active" data-toggle="tab" aria-expanded="false">
@@ -170,15 +170,15 @@
                             </button>
                             <div class="clearfix"></div>
                                 <div class="row">
-                              
-                           
-                     
+
+
+
                                     <div class="col-md-12">
                                         <div class="card shadow">
                                             <div class="card-body printableArea">
                                                 <h4 class="card-title">@lang('lang.inventory') @lang('lang.list') </h4>
                                                 <p class="card-title float-right text-primary">@lang('lang.inventory') @lang('lang.total') <span style="font-weight:400" class="text-dark" id="inventorytotal"></span></p>
-                                  
+
                                                 <div class="table-responsive text-black">
                                                     <table class="table">
                                                         <thead>
@@ -187,7 +187,7 @@
                                                                 <th style="overflow:hidden;white-space: nowrap;"> @lang('lang.itemname')</th>
                                                                 <th>@lang('lang.unit') @lang('lang.name')</th>
                                                                 <th style="overflow:hidden;white-space: nowrap;">@lang('lang.current') @lang('lang.quantity')</th>
-                                                                
+
                                                                 <!-- <th class="groundqty" style="overflow:hidden;white-space: nowrap;">@lang('lang.ground') @lang('lang.quantity')</th>
                                                                 <th class="groundqty" style="overflow:hidden;white-space: nowrap;">@lang('lang.differences')</th> -->
 
@@ -210,11 +210,11 @@
                                                                 <td class="groundqty"></td> -->
                                                                 <td>{{$unit->purchase_price}}</td>
                                                                 <td>
-                                                                    <?php 
+                                                                    <?php
                                                                     $subtotal=$unit->purchase_price * $unit->current_quantity;
                                                                    echo $subtotal;
                                                                    ?>
-                                                                    
+
                                                                 </td>
 
                                                             </tr>
@@ -224,13 +224,14 @@
                                                             @endforeach
                                                           <input type="hidden" id="alltotal" value="<?php echo $alltotal ?>">
                                                         </tbody>
+
                                                     </table>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                  
+
                                 </div>
                             </div>
                             <div id="navpills-1" class="tab-pane active">
@@ -325,11 +326,17 @@
                                                 </div>
                                             </tr>
                                             @endforeach
+
                                         </tbody>
+
                                     </table>
+
                                 </div>
+
                             </div>
+                            {{ $item_lists->links() }}
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -362,6 +369,7 @@
             $(".select2").select2();
 
             $('#example23').DataTable({
+
 
                 "paging": false,
                 "ordering": true,

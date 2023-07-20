@@ -78,6 +78,8 @@ Route::group(['middleware' => ['UserAuth']], function () {
 	Route::post('item/store', 'Web\InventoryController@storeItem')->name('item_store');
 	Route::post('item/update/{id}', 'Web\InventoryController@updateItem')->name('item_update');
 	Route::post('item/delete', 'Web\InventoryController@deleteItem');
+    Route::get('expired','Web\InventoryController@getExpiredItem')->name('expired_item_list');
+    Route::post('AjaxGetCountingUnit_by_ExpireStatus', 'Web\InventoryController@AjaxGetCountingUnit_by_ExpireStatus')->name('AjaxGetCountingUnit_by_ExpireStatus');
 
     //Counting Unit
 	Route::get('Count-Unit/{item_id}', 'Web\InventoryController@getUnitList')->name('count_unit_list');

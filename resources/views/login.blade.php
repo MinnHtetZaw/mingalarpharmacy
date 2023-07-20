@@ -38,10 +38,14 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-                <img src="{{asset('image/mingalar_pharmacy.jpg')}}" class="m-l-140 m-b-10" height="150px">
+                <div class="d-flex justify-content-center">
+
+                <img src="{{asset('image/mingalar_pharmacy_logo.png')}}" class="m-b-10" height="150px">
+
+                </div>
                 <form class="login100-form validate-form flex-sb flex-w" action="{{route('loginProcess')}}" method="POST">
                     @csrf
-                    <span class="login100-form-title p-b-32 text-success" style="font-size:22px; text-align=center;">
+                    <span class=" text-center login100-form-title p-b-32 text-success" style="font-size:22px; text-align=center;">
                         Mingalar Pharmacy
                     </span>
 

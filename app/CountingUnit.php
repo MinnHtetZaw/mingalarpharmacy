@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CountingUnit extends Model
 {
 	use SoftDeletes;
-	
+
     protected $guarded = [];
 
     protected $fillable = [
@@ -21,6 +21,8 @@ class CountingUnit extends Model
 		'whole_sale_price',
 		'order_price',
 		'purchase_price',
+        'expired_date',
+        'expired_status',
 		'item_id',
 		'normal_fixed_flash',
 		'normal_fixed_percent',

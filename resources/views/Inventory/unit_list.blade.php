@@ -25,7 +25,7 @@
 </style>
 
 <div class="row page-titles">
-    <div class="col-md-5 col-8 align-self-center">        
+    <div class="col-md-5 col-8 align-self-center">
         <h4 class="font-weight-normal">@lang('lang.counting_unit_list')</h4>
     </div>
 </div>
@@ -50,6 +50,8 @@
                                 <th style="overflow:hidden;white-space: nowrap;">Patient Price</th>
                                 <!--<th style="overflow:hidden;white-space: nowrap;">@lang('lang.order_price')</th>-->
                                 <th style="overflow:hidden;white-space: nowrap;">@lang('lang.purchase_price')</th>
+                                <th style="overflow:hidden;white-space: nowrap;">Expired Date</th>
+                                <th style="overflow:hidden;white-space: nowrap;">Expired Status</th>
                                 <th class="text-center">@lang('lang.action')</th>
                             </tr>
                         </thead>
@@ -68,7 +70,20 @@
                                 <td>{{$unit->normal_sale_price}}</td>
                                 <td>{{$unit->whole_sale_price}}</td>
                                 <!--<td>{{$unit->order_price}}</td>-->
-                                <td>{{$unit->purchase_price}}</td>                              
+                                <td>{{$unit->purchase_price}}</td>
+                                <td>{{$unit->expired_date}}</td>
+                                <td> @if ($unit->expired_status == 1)
+                                    > 30days
+                                    @elseif ($unit->expired_status == 2)
+                                    <= 30days
+                                    @elseif ($unit->expired_status == 3)
+                                    <= 7days
+                                    @elseif ($unit->expired_status == 4)
+                                   Expired
+                                    @endif
+                                </td>
+
+
                                 <td style="text-overflow: ellipsis; white-space: nowrap;">
                                     <a href="#" class="btn btn-outline-info" data-toggle="modal" data-target="#unit_code{{$unit->id}}">
                                     @lang('lang.add_code')</a>
@@ -97,19 +112,19 @@
                                     <div class="modal-body">
                                         <form class="form-material" method="post" action="{{route('count_unit_code_update',$unit->id)}}">
                                             @csrf
-                                            
+
                                             <div class="row jusitify-content-center">
-                                                <div class="form-group col-12">   
+                                                <div class="form-group col-12">
                                                     <label class="font-weight-bold">@lang('lang.unit') @lang('lang.code')</label>
-                                                    <input type="text" name="code" class="form-control" value="{{$unit->unit_code}}"> 
+                                                    <input type="text" name="code" class="form-control" value="{{$unit->unit_code}}">
                                                 </div>
-                                                
+
                                             </div>
 
                                             <input type="submit" name="btnsubmit" class="btnsubmit float-right btn btn-primary" value="@lang('lang.update_counting_unit')">
-                                        </form>           
+                                        </form>
                                     </div>
-                                   
+
                                   </div>
                                     </div>
                                 </div>
@@ -127,23 +142,23 @@
                                     <div class="modal-body">
                                         <form class="form-material" method="post" action="{{route('original_code_update',$unit->id)}}">
                                             @csrf
-                                            
+
                                             <div class="row jusitify-content-center">
-                                                <div class="form-group col-12">   
+                                                <div class="form-group col-12">
                                                     <label class="font-weight-bold">@lang('lang.unit') @lang('lang.original_code')</label>
-                                                    <input type="text" name="code" class="form-control" value="{{$unit->original_code}}"> 
+                                                    <input type="text" name="code" class="form-control" value="{{$unit->original_code}}">
                                                 </div>
-                                                
+
                                             </div>
 
                                             <input type="submit" name="btnsubmit" class="btnsubmit float-right btn btn-primary" value="@lang('lang.update_counting_unit')">
-                                        </form>           
+                                        </form>
                                     </div>
-                                   
+
                                   </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="modal fade" id="edit_item{{$unit->id}}" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
@@ -157,28 +172,28 @@
                                     <div class="modal-body">
                                         <form class="form-material" method="post" action="{{route('count_unit_update',$unit->id)}}">
                                             @csrf
-                                            
+
                                             <div class="row jusitify-content-center">
-                                                <div class="form-group col-12">   
+                                                <div class="form-group col-12">
                                                     <label class="font-weight-bold">@lang('lang.unit') @lang('lang.name')</label>
-                                                    <input type="text" name="name" class="form-control" value="{{$unit->unit_name}}"> 
+                                                    <input type="text" name="name" class="form-control" value="{{$unit->unit_name}}">
                                                 </div>
-                                                <div class="form-group col-12">   
+                                                <div class="form-group col-12">
                                                     <label class="font-weight-bold">@lang('lang.current') @lang('lang.quantity')</label>
-                                                    <input type="number" name="current_quantity" class="form-control" value="{{$unit->current_quantity}}"> 
+                                                    <input type="number" name="current_quantity" class="form-control" value="{{$unit->current_quantity}}">
                                                 </div>
-                                                <div class="form-group col-12">   
+                                                <div class="form-group col-12">
                                                     <label class="font-weight-bold">@lang('lang.reorder_quantity')</label>
-                                                    <input type="number" name="reorder_quantity" class="form-control" value="{{$unit->reorder_quantity}}"> 
+                                                    <input type="number" name="reorder_quantity" class="form-control" value="{{$unit->reorder_quantity}}">
                                                 </div>
-                                                <div class="form-group col-12">   
+                                                <div class="form-group col-12">
                                                     <label class="font-weight-bold">@lang('lang.purchase_price')</label>
-                                                    <input type="number" name="purchase_price" class="form-control" value="{{$unit->purchase_price}}"> 
+                                                    <input type="number" name="purchase_price" class="form-control" value="{{$unit->purchase_price}}">
                                                 </div>
-                                                <div class="form-group col-4">   
+                                                <div class="form-group col-4">
                                                     <label class="font-weight-bold">Pharmacy Price</label>
-                                                    <input type="number" name="normal_price" id="normal_price" class="form-control" value="{{$unit->normal_sale_price}}"> 
-                                                    <input type="hidden" id="unchange_normal" value="{{$unit->normal_sale_price}}"> 
+                                                    <input type="number" name="normal_price" id="normal_price" class="form-control" value="{{$unit->normal_sale_price}}">
+                                                    <input type="hidden" id="unchange_normal" value="{{$unit->normal_sale_price}}">
                                                 </div>
                                                 <div class="form-group col-4">
                                                     <input type="checkbox" class="custom-control-input" name="normal_fixed_flash" id="normal_fixed_flash" value="1"
@@ -189,14 +204,14 @@
                                                     <label class="font-weight-bold" for="normal_fixed_flash">Fixed ထားရန်</label>
 
                                                 </div>
-                                                <div class="form-group col-4">   
+                                                <div class="form-group col-4">
                                                     <label class="font-weight-bold">percent (%)</label>
-                                                    <input type="number" name="normal_fixed_percent" id="normal_fixed_percent" class="form-control" value="{{$unit->normal_fixed_percent}}"> 
+                                                    <input type="number" name="normal_fixed_percent" id="normal_fixed_percent" class="form-control" value="{{$unit->normal_fixed_percent}}">
                                                 </div>
-                                                <div class="form-group col-4">   
+                                                <div class="form-group col-4">
                                                     <label class="font-weight-bold">Patient Price</label>
-                                                    <input type="number" name="whole_price" id="whole_price" class="form-control" value="{{$unit->whole_sale_price}}"> 
-                                                    <input type="hidden" id="unchange_whole" value="{{$unit->whole_sale_price}}"> 
+                                                    <input type="number" name="whole_price" id="whole_price" class="form-control" value="{{$unit->whole_sale_price}}">
+                                                    <input type="hidden" id="unchange_whole" value="{{$unit->whole_sale_price}}">
 
                                                 </div>
                                                 <div class="form-group col-4">
@@ -208,9 +223,9 @@
                                                     <label class="font-weight-bold" for="whole_fixed_flash">Fixed ထားရန်</label>
 
                                                 </div>
-                                                <div class="form-group col-4">   
+                                                <div class="form-group col-4">
                                                     <label class="font-weight-bold">percent (%)</label>
-                                                    <input type="number" name="whole_fixed_percent" id="whole_fixed_percent" class="form-control" value="{{$unit->whole_fixed_percent}}"> 
+                                                    <input type="number" name="whole_fixed_percent" id="whole_fixed_percent" class="form-control" value="{{$unit->whole_fixed_percent}}">
                                                 </div>
                                                 <!--<div class="form-group col-4">   -->
                                                 <!--    <label class="font-weight-bold">@lang('lang.order_price')</label>-->
@@ -232,13 +247,13 @@
                                                 <!--</div>-->
 
 
-                                                
+
                                             </div>
 
                                             <input type="submit" name="btnsubmit" class="btnsubmit float-right btn btn-primary" value="@lang('lang.update_counting_unit')">
-                                        </form>           
+                                        </form>
                                     </div>
-                                   
+
                                   </div>
                                     </div>
                                 </div>
@@ -259,32 +274,38 @@
                     @csrf
                     <input type="hidden" value="{{$item->id}}" name="item_id">
 
-                    <div class="form-group">    
+                    <div class="form-group">
                         <label class="font-weight-bold">@lang('lang.unit') @lang('lang.name')</label>
-                        <input type="text" name="name" class="form-control" placeholder="@lang('lang.enter_unit_name')"> 
+                        <input type="text" name="name" class="form-control" placeholder="@lang('lang.enter_unit_name')">
                     </div>
-                    
-                    <div class="form-group">    
+
+                    <div class="form-group">
                         <label class="font-weight-bold">@lang('lang.current') @lang('lang.quantity')</label>
-                        <input type="number" name="current_qty" class="form-control" placeholder="@lang('lang.enter_current_quantity')"> 
+                        <input type="number" name="current_qty" class="form-control" placeholder="@lang('lang.enter_current_quantity')">
                     </div>
-                    
-                    <div class="form-group">    
+
+                    <div class="form-group">
                         <label class="font-weight-bold">@lang('lang.reorder_quantity')</label>
-                        <input type="number" name="reorder_qty" class="form-control" placeholder="@lang('lang.enter_reorder_quantity')"> 
+                        <input type="number" name="reorder_qty" class="form-control" placeholder="@lang('lang.enter_reorder_quantity')">
                     </div>
-                    
-                    <div class="form-group">    
+                    <div class="form-group">
+                        <label class="font-weight-bold">Expired Data</label>
+                        <input type="date" name="expired_date" class="form-control" data-type="normal" data-action="expired_date" placeholder="Enter Expired Date"
+                        id="normal_perprice"
+                        >
+                    </div>
+                    <div class="form-group">
                         <label class="font-weight-bold">@lang('lang.purchase_price')</label>
-                        <input type="number" name="purchase_price" id="purchase_prc" class="form-control" placeholder="@lang('lang.enter_purchase_price')"> 
+                        <input type="number" name="purchase_price" id="purchase_prc" class="form-control" placeholder="@lang('lang.enter_purchase_price')">
                     </div>
-                    
-                    <div class="form-group">    
+
+                    <div class="form-group">
                         <label class="font-weight-bold">Pharmacy Price</label>
                         <input type="number" name="normal_price" class="form-control calculatepercent" data-type="normal" data-action="pricetopercent" placeholder="Enter Pharmacy Price"
                         id="normal_perprice"
-                        > 
+                        >
                     </div>
+
                     <div class="form-group row">
                         <div class=" col-6">
                             <input type="checkbox" class="custom-control-input" name="normal_fixed" id="normal_fixed" value="1"
@@ -293,17 +314,17 @@
                         </div>
                         <div class=" col-6">
                             <label class="font-weight-bold">%</label>
-                            <input type="number" name="normal_percent" class="form-control calculatepercent" data-action="percenttoprice" data-type="normal" id="normal_percent"> 
-                            
-                            
+                            <input type="number" name="normal_percent" class="form-control calculatepercent" data-action="percenttoprice" data-type="normal" id="normal_percent">
+
+
                         </div>
                     </div>
 
-                    <div class="form-group">    
+                    <div class="form-group">
                         <label class="font-weight-bold">Patient Price</label>
                         <input type="number" name="whole_price" class="form-control calculatepercent" data-type="whole" data-action="pricetopercent" placeholder="Enter Patient Price"
                         id="whole_perprice"
-                        > 
+                        >
                     </div>
                     <div class="form-group row">
                         <div class=" col-6">
@@ -313,7 +334,7 @@
                         </div>
                         <div class=" col-6">
                             <label class="font-weight-bold">%</label>
-                            <input type="number" name="whole_percent" id="whole_percent" class="form-control calculatepercent" data-action="percenttoprice" data-type="whole"> 
+                            <input type="number" name="whole_percent" id="whole_percent" class="form-control calculatepercent" data-action="percenttoprice" data-type="whole">
                         </div>
                     </div>
                     <!--<div class="form-group">    -->
@@ -378,8 +399,8 @@
             var action = $(this).data('action');
             var value = $(this).val();
             var purchase_prc = $('#purchase_prc').val();
-      
-            
+
+
             if(action=="pricetopercent"){
                 var percent = ((value-purchase_prc)/purchase_prc)*100;
                 var id = type+"_percent";
@@ -390,7 +411,7 @@
                 var id = type+"_perprice";
                 $("#"+id).val(price);
             }
-            
+
         })
 
     });
@@ -406,20 +427,20 @@
         })
 
       .then((isConfirm)=>{
-        
+
         if(isConfirm){
 
           $.ajax({
               type:'POST',
                 url:'delete',
                 dataType:'json',
-                data:{ 
+                data:{
                   "_token": "{{ csrf_token() }}",
                   "unit_id": unit_id,
                 },
 
               success: function(){
-                      
+
                       swal({
                             title: "@lang('lang.success')!",
                             text : "@lang('lang.successfully_deleted')!",
@@ -430,8 +451,8 @@
                window.location.reload();
             }, 1000);
 
-                        
-                    },            
+
+                    },
                 });
         }
       });
