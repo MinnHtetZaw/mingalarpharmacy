@@ -42,7 +42,7 @@ class StockController extends Controller
       else {
         $item_from= $request->session()->get('from');
       }
-       $items= From::find($item_from)->items()->with('category')->with('sub_category')->with('counting_units')->with('counting_units.stockcount')->get();
+       $items= From::find($item_from)->items()->with('category')->with('counting_units')->with('counting_units.stockcount')->get();
 
         $shops = From::all();
     	return view('Stock.stock_count_page', compact('items','shops'));
@@ -95,7 +95,7 @@ class StockController extends Controller
       else {
         $item_from= $request->session()->get('from');
       }
-       $items= From::find($item_from)->items()->with('category')->with('sub_category')->with('counting_units')->with('counting_units.stockcount')->get();
+       $items= From::find($item_from)->items()->with('category')->with('counting_units')->with('counting_units.stockcount')->get();
 
         $shops = From::all();
     	return view('Itemadjust.create_itemadjust', compact('items','shops'));
@@ -112,7 +112,7 @@ class StockController extends Controller
       else {
         $item_from= $request->session()->get('from');
       }
-       $items= From::find($item_from)->items()->with('category')->with('sub_category')->with('counting_units')->with('counting_units.stockcount')->get();
+       $items= From::find($item_from)->items()->with('category')->with('counting_units')->with('counting_units.stockcount')->get();
 
         $shops = From::all();
     	return view('Stock.stock_lists', compact('items','shops'));
@@ -136,7 +136,7 @@ class StockController extends Controller
       else {
         $item_from= $request->session()->get('from');
       }
-       $items= From::find($item_from)->items()->with('category')->with('sub_category')->with('counting_units')->with('counting_units.stockcount')->get();
+       $items= From::find($item_from)->items()->with('category')->with('counting_units')->with('counting_units.stockcount')->get();
 
         $shops = From::all();
     	return view('Stock.reorder_page', compact('items','shops'));

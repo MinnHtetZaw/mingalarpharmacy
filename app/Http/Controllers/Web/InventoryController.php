@@ -118,68 +118,68 @@ class InventoryController extends Controller
         return response()->json($category);
 	}
 
-	protected function subcategoryList()
-	{
-		$categories = Category::all();
+	// protected function subcategoryList()
+	// {
+	// 	$categories = Category::all();
 
-		$sub_categories = SubCategory::all();
+	// 	$sub_categories = SubCategory::all();
 
-		return view('Inventory.subcategory_list', compact('categories','sub_categories'));
-	}
+	// 	return view('Inventory.subcategory_list', compact('categories','sub_categories'));
+	// }
 
-	protected function storeSubCategory(request $request){
+	// protected function storeSubCategory(request $request){
 
-	    $validator = Validator::make($request->all(), [
-            'sub_category_code' => 'required',
-            'sub_category_name' => 'required',
-            'category' => 'required',
-        ]);
+	//     $validator = Validator::make($request->all(), [
+    //         'sub_category_code' => 'required',
+    //         'sub_category_name' => 'required',
+    //         'category' => 'required',
+    //     ]);
 
-        if ($validator->fails()) {
+    //     if ($validator->fails()) {
 
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
 
 
-            $sub_category = SubCategory::create([
-                'name' => $request->sub_category_name,
-                'category_id' => $request->category,
-            ]);
+    //         $sub_category = SubCategory::create([
+    //             'name' => $request->sub_category_name,
+    //             'category_id' => $request->category,
+    //         ]);
 
-            $sub_category->subcategory_code = sprintf('%03s',$request->sub_category_code);
+    //         $sub_category->subcategory_code = sprintf('%03s',$request->sub_category_code);
 
-            $sub_category->save();
+    //         $sub_category->save();
 
-    	alert()->success('Successfully Added');
+    // 	alert()->success('Successfully Added');
 
-        return redirect()->route('subcategory_list');
-	}
+    //     return redirect()->route('subcategory_list');
+	// }
 
-	protected function updateSubCategory(request $request, $id){
+	// protected function updateSubCategory(request $request, $id){
 
-	   try {
+	//    try {
 
-        	$sub_category = SubCategory::findOrFail($id);
+    //     	$sub_category = SubCategory::findOrFail($id);
 
-   		} catch (\Exception $e) {
+   	// 	} catch (\Exception $e) {
 
-        	alert()->error("Category Not Found!")->persistent("Close!");
+    //     	alert()->error("Category Not Found!")->persistent("Close!");
 
-            return redirect()->back();
+    //         return redirect()->back();
 
-    	}
+    // 	}
 
-        $sub_category->subcategory_code = $request->sub_category_code;
+    //     $sub_category->subcategory_code = $request->sub_category_code;
 
-        $sub_category->name = $request->sub_category_name;
+    //     $sub_category->name = $request->sub_category_name;
 
-        $sub_category->save();
+    //     $sub_category->save();
 
-        alert()->success('Successfully Updated!');
+    //     alert()->success('Successfully Updated!');
 
-        return redirect()->route('subcategory_list');
+    //     return redirect()->route('subcategory_list');
 
-	}
+	// }
 
 	protected function showSubCategory(request $request){
 
@@ -209,7 +209,6 @@ class InventoryController extends Controller
             'item_code' => 'required',
             'item_name' => 'required',
             'category_id' => 'required',
-            'sub_category_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -254,7 +253,6 @@ class InventoryController extends Controller
                 'photo_path' => $photo_path,
                 'customer_console' => $customer_console,
                 'category_id' => $request->category_id,
-                'sub_category_id' => $request->sub_category_id,
             ]);
 
             if($item != null){
@@ -321,8 +319,6 @@ class InventoryController extends Controller
         $item->item_name = $request->item_name;
 
         $item->category_id = $request->category_id;
-
-        $item->sub_category_id = $request->sub_category_id;
 
         $item->photo_path = $photo_path;
 
@@ -556,7 +552,7 @@ class InventoryController extends Controller
     }
     public function itemAssignShop(Request $request)
     {
-        $item_lists =  Item::whereNull("deleted_at")->orderBy('category_id', 'ASC')->with('category')->with("sub_category")->with('froms')->get();
+        $item_lists =  Item::whereNull("deleted_at")->orderBy('category_id', 'ASC')->with('category')->with('froms')->get();
         $shops= From::all();
 		return response()->json($item_lists) ;
     }
@@ -811,7 +807,7 @@ class InventoryController extends Controller
 
         $shop_id = $request->shop_id;
 
-       $items= From::find($shop_id)->items()->with('category')->with('sub_category')->with('counting_units')->with('counting_units.stockcount')->get();
+       $items= From::find($shop_id)->items()->with('category')->with('counting_units')->with('counting_units.stockcount')->get();
 
         return response()->json($items);
     }

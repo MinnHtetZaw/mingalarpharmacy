@@ -14,7 +14,6 @@ use App\Employee;
 use App\Stockcount;
 use App\Appointment;
 use App\Packagetype;
-use App\SubCategory;
 use App\Wayplanning;
 use App\CountingUnit;
 use App\DiscountMain;
@@ -319,7 +318,7 @@ class DeliveryController extends Controller
             $item_from= $request->session()->get('from');
         }
         $froms=From::find($item_from);
-        $items = $froms->items()->with('category')->with('counting_units')->with("counting_units.stockcount")->with('sub_category')->get();
+        $items = $froms->items()->with('category')->with('counting_units')->with("counting_units.stockcount")->get();
         // dd($items);
         $last_voucher = Voucher::get()->last();
 

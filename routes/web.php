@@ -68,9 +68,9 @@ Route::group(['middleware' => ['UserAuth']], function () {
     Route::get('category', 'Web\InventoryController@categoryList')->name('category_list');
 
 	//SubCategory
-	Route::get('subcategory', 'Web\InventoryController@subcategoryList')->name('subcategory_list');
-	Route::post('subcategory/store', 'Web\InventoryController@storeSubCategory')->name('sub_category_store');
-	Route::post('subcategory/update/{id}', 'Web\InventoryController@updateSubCategory')->name('sub_category_update');
+	// Route::get('subcategory', 'Web\InventoryController@subcategoryList')->name('subcategory_list');
+	// Route::post('subcategory/store', 'Web\InventoryController@storeSubCategory')->name('sub_category_store');
+	// Route::post('subcategory/update/{id}', 'Web\InventoryController@updateSubCategory')->name('sub_category_update');
 
 
     //Item

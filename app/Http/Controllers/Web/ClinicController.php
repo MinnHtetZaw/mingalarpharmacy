@@ -14,7 +14,6 @@ use App\SurgenFee;
 use App\Department;
 use App\Appointment;
 use App\OtRoomUsage;
-use App\SubCategory;
 use App\CountingUnit;
 use App\ClinicPatient;
 use App\ClinicVoucher;
@@ -812,7 +811,7 @@ class ClinicController extends Controller
 
         $categories = Category::all();
 
-        $sub_categories = SubCategory::all();
+
 
         $employees = Employee::all();
 
@@ -825,7 +824,7 @@ class ClinicController extends Controller
         $today_date = strtotime($date->format('d-m-Y H:i'));
 
         // $state_lists= State::all();
-    	return view('Clinic.clinic_sale_page',compact('items','categories','employees','today_date','sub_categories','otherServices','doctors'));
+    	return view('Clinic.clinic_sale_page',compact('items','categories','employees','today_date','otherServices','doctors'));
     }
 
     public function searchItem(Request $request)

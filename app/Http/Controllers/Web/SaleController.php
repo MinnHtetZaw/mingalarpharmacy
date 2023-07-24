@@ -14,7 +14,6 @@ use App\Employee;
 use Carbon\Carbon;
 use App\Itemadjust;
 use App\Stockcount;
-use App\SubCategory;
 use App\CountingUnit;
 use App\DiscountMain;
 use App\SalesCustomer;
@@ -50,12 +49,11 @@ class SaleController extends Controller
             $item_from= $request->session()->get('from');
         }
         $froms=From::find($item_from);
-        $items = $froms->items()->with('category')->with('counting_units')->with("counting_units.stockcount")->with('sub_category')->get();
-        // $items = Item::with('counting_units')->get();
+        $items = $froms->items()->with('category')->with('counting_units')->with("counting_units.stockcount")->get();
 
         $categories = Category::all();
 
-        $sub_categories = SubCategory::all();
+
 
         $customers = Customer::all();
 
@@ -74,7 +72,7 @@ class SaleController extends Controller
         }
         $salescustomers = SalesCustomer::all();
     	// dd($salescustomers);
-    	return view('Sale.sale_page',compact('voucher_code','items','categories','customers','employees','today_date','sub_categories','salescustomers'));
+    	return view('Sale.sale_page',compact('voucher_code','items','categories','customers','employees','today_date','salescustomers'));
     }
 
     protected function getSalesItems(Request $request){
@@ -85,7 +83,7 @@ class SaleController extends Controller
             $item_from= $request->session()->get('from');
         }
         $froms=From::find($item_from);
-        $items = $froms->items()->with('category')->with('counting_units')->with("counting_units.stockcount")->with('sub_category')->get();
+        $items = $froms->items()->with('category')->with('counting_units')->with("counting_units.stockcount")->get();
         return response()->json($items);
     }
 

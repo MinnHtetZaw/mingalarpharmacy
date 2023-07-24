@@ -2695,8 +2695,7 @@
 
                 } else {
                     var totaL = $('#gtot').val();
-                    //var discount_amount_text = totaL - price_change;
-                    //var discount_amount = totaL - price_change;
+    
                     var discount_amount_text = price_change;
                     var discount_amount = price_change;
                     var total_with_dis = totaL-discount_amount;
@@ -2706,10 +2705,6 @@
 
 
                 $('#with_dis_total').val(parseInt(total_with_dis));
-
-                //$('#sub_total').empty();
-
-                //$('#sub_total').text(parseInt(total_with_dis));
 
                 $('#total_charges_a5').empty();
                 $('#total_charges_a5').text(parseInt(total_with_dis));
