@@ -75,14 +75,6 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">@lang('lang.subcategory')</label>
-                                                    <select class="form-control select2" style="width: 100%" id="sub_category" name="sub_category_id">
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                             <div class="col-md-4 mt-2">
                                                 <label class="control-label">@lang('lang.customer_console')</label>
                                                 <div class="switch">
@@ -142,11 +134,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label class="control-label">@lang('lang.subcategory')</label>
-                        <select class="form-control" id="subcategory" onchange="showRelatedItemList(this.value)">
-                        </select>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -242,7 +230,7 @@
                                                 <th>@lang('lang.item') @lang('lang.code')</th>
                                                 <th>@lang('lang.item') @lang('lang.name')</th>
                                                 <th>@lang('lang.related_category')</th>
-                                                <th>@lang('lang.related_subcategory')</th>
+
                                                 <th>@lang('lang.unit') @lang('lang.list')</th>
                                                 <th>@lang('lang.unit') @lang('lang.conversion')</th>
                                                 <th class="text-center">@lang('lang.action')</th>
@@ -254,7 +242,7 @@
                                                 <td>{{$item->item_code}}</td>
                                                 <td>{{$item->item_name}}</td>
                                                 <td>{{$item->category->category_name ?? "Defaut Category"}}</td>
-                                                <td>{{$item->sub_category->name??""}}</td>
+                                             
                                                 <td>
                                                     <a href="{{route('count_unit_list',$item->id)}}" class="btn btn-outline-info">
                                                         @lang('lang.check')</a>
@@ -305,16 +293,6 @@
                                                                         <select class="form-control select2 m-b-10" name="category_id" style="width: 100%">
                                                                             @foreach($categories as $category)
                                                                             <option value="{{$category->id}}" @if($item->category_id === $category->id) selected='selected' @endif >{{$category->category_name}}</option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="font-weight-bold">@lang('lang.related_subcategory')</label>
-                                                                        <select class="form-control select2 m-b-10" name="sub_category_id" style="width: 100%">
-                                                                            @foreach($sub_categories as $sub_category)
-                                                                            @if($sub_category->category_id == $item->category_id)
-                                                                            <option value="{{$sub_category->id}}" @if($item->sub_category_id === $sub_category->id) selected='selected' @endif>{{$sub_category->name}}</option>
-                                                                            @endif
                                                                             @endforeach
                                                                         </select>
                                                                     </div>

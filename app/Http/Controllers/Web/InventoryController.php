@@ -48,13 +48,14 @@ class InventoryController extends Controller
         try {
 
             $category = Category::create([
+                'category_code' => $request->category_code,
                 'category_name' => $request->category_name,
                 'created_by' => $user_code,
             ]);
 
-            $category->category_code = sprintf('%03s',$request->category_code);
+            // $category->category_code = sprintf('%03s',$request->category_code);
 
-            $category->save();
+            // $category->save();
 
         } catch (\Exception $e) {
 
@@ -197,10 +198,7 @@ class InventoryController extends Controller
 
 		$categories =  Category::whereNull("deleted_at")->get();
 
-
-		$sub_categories = SubCategory::all();
-
-		return view('Inventory.item_list', compact('units','item_lists','categories','sub_categories'));
+		return view('Inventory.item_list', compact('units','item_lists','categories'));
 	}
 
 	protected function storeItem(Request $request)
@@ -883,7 +881,7 @@ class InventoryController extends Controller
       else {
         $item_from= $request->session()->get('from');
       }
-       $items= From::find($item_from)->items()->with('category')->with('sub_category')->with('counting_units')->with('counting_units.stockcount')->get();
+       $items= From::find($item_from)->items()->with('category')->with('counting_units')->with('counting_units.stockcount')->get();
 
         $shops = From::all();
     	return view('Inventory.check_expire_item_list', compact('items','shops'));

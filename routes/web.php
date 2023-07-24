@@ -361,4 +361,4 @@ Route::post('deleteIncome', 'Web\AdminController@deleteIncome')->name('delete_in
 Route::get('/excel', function () {
     return view('Admin.execel');
 });
-Route::post('execelImport', 'Web\AdminController@execelImport')->name('execelImport');
+Route::post('execelImport', 'Web\ImportController@execelImport')->name('execelImport');

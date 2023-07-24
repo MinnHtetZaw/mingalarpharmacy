@@ -17,7 +17,7 @@
 @section('content')
 
 <div class="row page-titles">
-    <div class="col-md-5 col-8 align-self-center">        
+    <div class="col-md-5 col-8 align-self-center">
         <h4 class="font-weight-normal">@lang('lang.category') @lang('lang.list')</h4>
     </div>
 </div>
@@ -51,7 +51,7 @@
                                     <a href="#" class="btn btn-outline-danger" onclick="ApproveLeave('{{$category->id}}')">
                                     <i class="fas fa-trash-alt"></i></a>
                                 </td>
-                                
+
                                 <div class="modal fade" id="edit_item{{$category->id}}" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -65,18 +65,18 @@
                                     <div class="modal-body">
                                         <form class="form-material m-t-40" method="post" action="{{route('category_update', $category->id)}}">
                                             @csrf
-                                            <div class="form-group">    
+                                            <div class="form-group">
                                                 <label class="font-weight-bold">@lang('lang.code')</label>
-                                                <input type="number" name="category_code" class="form-control" value="{{$category->category_code}}"> 
+                                                <input type="text" name="category_code" class="form-control" value="{{$category->category_code}}">
                                             </div>
-                                            <div class="form-group">    
+                                            <div class="form-group">
                                                 <label class="font-weight-bold">@lang('lang.name')</label>
-                                                <input type="text" name="category_name" class="form-control" value="{{$category->category_name}}"> 
+                                                <input type="text" name="category_name" class="form-control" value="{{$category->category_name}}">
                                             </div>
                                             <input type="submit" name="btnsubmit" class="btnsubmit float-right btn btn-primary" value="@lang('lang.save')">
-                                        </form>           
+                                        </form>
                                     </div>
-                               
+
                               </div>
                                     </div>
                                 </div>
@@ -95,9 +95,9 @@
                 <h3 class="card-title">@lang('lang.create_category_form')</h3>
                 <form class="form-material m-t-40" method="post" action="{{route('category_store')}}">
                     @csrf
-                    <div class="form-group">    
+                    <div class="form-group">
                         <label class="font-weight-bold">@lang('lang.code')</label>
-                        <input type="number" name="category_code" class="form-control @error('category_code') is-invalid @enderror" placeholder="@lang('lang.enter_category_code')" required>
+                        <input type="text" name="category_code" class="form-control @error('category_code') is-invalid @enderror" placeholder="@lang('lang.enter_category_code')" required>
 
                         @error('category_code')
                             <span class="invalid-feedback alert alert-danger" role="alert"  height="100">
@@ -106,7 +106,7 @@
                         @enderror
 
                     </div>
-                    <div class="form-group">    
+                    <div class="form-group">
                         <label class="font-weight-bold">@lang('lang.name')</label>
                         <input type="text" name="category_name" class="form-control @error('category_name') is-invalid @enderror" placeholder="@lang('lang.enter_category_name')" required>
 
@@ -114,7 +114,7 @@
                             <span class="invalid-feedback alert alert-danger" role="alert"  height="100">
                                 {{ $message }}
                             </span>
-                        @enderror 
+                        @enderror
 
                     </div>
                     <input type="submit" name="btnsubmit" class="btnsubmit float-right btn btn-primary" value="@lang('lang.save_category')">
@@ -140,20 +140,20 @@
         })
 
       .then((isConfirm)=>{
-        
+
         if(isConfirm){
 
             $.ajax({
                 type:'POST',
                 url:'category/delete',
                 dataType:'json',
-                data:{ 
+                data:{
                   "_token": "{{ csrf_token() }}",
                   "category_id": category_id,
                 },
 
                 success: function(){
-                      
+
                     swal({
                         title: "Success!",
                         text : "Successfully Deleted!",
@@ -162,8 +162,8 @@
 
                     setTimeout(function(){window.location.reload()}, 1000);
 
-                        
-                },            
+
+                },
             });
         }
       });

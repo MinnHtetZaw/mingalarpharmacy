@@ -151,7 +151,7 @@ class DeliveryController extends Controller
         // }
         // $categories = array_values($result);
         $categories = Category::all();
-        $sub_categories = SubCategory::all();
+
 
         $employees = Employee::all();
 
@@ -176,7 +176,7 @@ class DeliveryController extends Controller
 
             return view('Clinic.appointments',compact('appointments'));
         }else{
-            return view('Sale.sale_page',compact('voucher_code','salescustomers','adminpass','fItems','warehouses','items','categories','employees','today_date','sub_categories','customers'));
+            return view('Sale.sale_page',compact('voucher_code','salescustomers','adminpass','fItems','warehouses','items','categories','employees','today_date','customers'));
         }
         // $today_date = $date->format('d-m-Y H:i');
         // dd($today_date);

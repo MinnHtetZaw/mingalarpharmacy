@@ -2773,23 +2773,7 @@ return view('Admin.fixasset',compact('fixed_asset','done'));
          return response()->json($counting_unit);
 
     }
-    public function execelImport(Request $request)
-    {
-        $this->validate($request, [
-            'select_file' => 'required|mimes:xls,xlsx'
-         ]);
-        //  try{
-
-        $counts = Excel::import(new ItemsImport(),$request->file('select_file'));
-
-        // } catch (\Exception $e) {
-        // alert()->error("Something Went Wrong!");
-        //  return back();
-
-        // }
-        alert()->success("Success");
-        return back();
-    }
+  
     public function delete_units(Request $request)
     {
         $validator = Validator::make($request->all(), [

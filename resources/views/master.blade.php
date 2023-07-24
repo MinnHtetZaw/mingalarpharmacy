@@ -256,7 +256,7 @@
 
                                 <li><a href="{{route('inven_dashboard')}}">@lang('lang.inventory_dashboard')</a></li>
                                 <li><a href="{{route('category_list')}}">@lang('lang.category') @lang('lang.list')</a></li>
-                                <li><a href="{{route('subcategory_list')}}">@lang('lang.subcategory') @lang('lang.list')</a></li>
+                                {{-- <li><a href="{{route('subcategory_list')}}">@lang('lang.subcategory') @lang('lang.list')</a></li> --}}
                                 <li><a href="{{route('item_list')}}">@lang('lang.item') @lang('lang.list')</a></li>
                                 <!--<li><a href="{{route('item_assign')}}">ပစ္စည်းဆိုင် သတ်မှတ်ရန်</a></li>-->
                                 <li><a href="{{route('expired_item_list')}}">Expired Item List</a></li>
