@@ -159,7 +159,7 @@ class DeliveryController extends Controller
         $customers = Customer::all();
 
         $today_date = strtotime($date->format('d-m-Y H:i'));
-        $fItems =Item::with('category')->with('sub_category')->get();
+        $fItems =Item::with('category')->get();
         $salescustomers = SalesCustomer::all();
         $last_voucher = Voucher::get()->last();
 
