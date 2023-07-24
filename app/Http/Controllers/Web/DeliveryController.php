@@ -141,7 +141,7 @@ class DeliveryController extends Controller
 
         $froms=From::find($id);
         $categories=[];
-        $items = $froms->items()->with('category')->with('sub_category')->get();
+        $items = $froms->items()->with('category')->get();
 
         // foreach ($items as $item) {
 
