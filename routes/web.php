@@ -230,7 +230,7 @@ Route::post('deleteIncome', 'Web\AdminController@deleteIncome')->name('delete_in
     Route::get('shop-lists', 'Web\DeliveryController@getshopList');
 
     Route::get('Admin/Shop/{id}', 'Web\DeliveryController@SalePage')->name('admin_sale_page');
-    Route::post('testVoucher', 'Web\DeliveryController@storetestVoucher');
+    Route::post('/testVoucher', 'Web\DeliveryController@storetestVoucher')->name('testVoucher');
     Route::post('getItemForA5', 'Web\DeliveryController@getItemA5')->name('getItemForA5');
 
 

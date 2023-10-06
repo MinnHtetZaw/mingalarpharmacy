@@ -182,7 +182,6 @@ class DeliveryController extends Controller
     }
     public function storetestVoucher(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'item' => 'required',
             'grand' => 'required',
@@ -336,7 +335,8 @@ class DeliveryController extends Controller
                 'status' => 0,
             ]);
 
-        }
+        }   
+        
     }
     public function getItemA5(Request $request)
     {
