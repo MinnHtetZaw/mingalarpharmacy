@@ -66,7 +66,9 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">@lang('lang.category')</label>
-                                                    <select class="form-control select2 m-b-10" name="category_id" style="width: 100%" onchange="showSubCategory(this.value)">
+                                                    {{-- <select class="form-control select2 m-b-10" name="category_id" style="width: 100%" onchange="showSubCategory(this.value)"> --}}
+                                                        <select class="form-control select2 m-b-10" name="category_id" style="width: 100%">
+
                                                         <option value="">@lang('lang.select_category')</option>
                                                         @foreach($categories as $category)
                                                         <option value="{{$category->id}}">{{$category->category_name}}</option>
@@ -194,8 +196,7 @@
                                                                 <td style="overflow:hidden;white-space: nowrap;">{{$unit->item->item_name}}</td>
                                                                 <td style="overflow:hidden;white-space: nowrap;">{{$unit->unit_name}}</td>
                                                                 <td>{{$unit->current_quantity}}</td>
-                                                                <!-- <td class="groundqty"></td>
-                                                                <td class="groundqty"></td> -->
+                                                              
                                                                 <td>{{$unit->purchase_price}}</td>
                                                                 <td>
                                                                     <?php
@@ -312,7 +313,7 @@
                                 </div>
 
                             </div>
-                            {{ $item_lists->links() }}
+                            {{-- {{ $item_lists->links() }} --}}
                         </div>
 
                     </div>
@@ -398,35 +399,35 @@
                 });
         }
 
-        function showSubCategory(value) {
+        // function showSubCategory(value) {
 
-            var category_id = value;
+        //     var category_id = value;
 
-            $('#sub_category').empty();
+        //     $('#sub_category').empty();
 
-            $.ajax({
-                type: 'POST',
-                url: '/showSubCategory',
-                dataType: 'json',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    "category_id": category_id,
-                },
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '/showSubCategory',
+        //         dataType: 'json',
+        //         data: {
+        //             "_token": "{{ csrf_token() }}",
+        //             "category_id": category_id,
+        //         },
 
-                success: function(data) {
+        //         success: function(data) {
 
-                    console.log(data);
+        //             console.log(data);
 
-                    $.each(data, function(i, value) {
+        //             $.each(data, function(i, value) {
 
-                        $('#sub_category').append($('<option>').text(value.name).attr('value', value.id));
-                    });
+        //                 $('#sub_category').append($('<option>').text(value.name).attr('value', value.id));
+        //             });
 
-                }
+        //         }
 
-            });
+        //     });
 
-        }
+        // }
 
         function showRelatedSubCategory(value) {
 
