@@ -182,17 +182,22 @@ class InventoryController extends Controller
 	// }
 
 	protected function showSubCategory(request $request){
-
+        // return $request;
+             
 	    $category_id = $request->category_id;
+        // return $category_id;
 
 	    $subcategory = SubCategory::where('category_id', $category_id)->get();
+       
 
 	    return response()->json($subcategory);
 	}
 
 	protected function itemList()
 	{
-        $item_lists =  Item::whereNull("deleted_at")->orderBy('category_id', 'ASC')->paginate(10);
+        $item_lists =  Item::whereNull("deleted_at")->orderBy('category_id', 'ASC')->get();
+        // $item_lists =  Item::orderBy('category_id', 'ASC')->get();
+
 
         $units=CountingUnit::whereNull("deleted_at")->orderBy('id', 'ASC')->get();
 
@@ -203,6 +208,7 @@ class InventoryController extends Controller
 
 	protected function storeItem(Request $request)
 	{
+        // return $request;
 	    $fromId = 1;
 
 		$validator = Validator::make($request->all(), [

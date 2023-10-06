@@ -1465,7 +1465,7 @@
                             </td>
 
                             <td class="text-black w-25 m-0 p-0" data-price="${selling_price}" >
-                                <input onkeyup="table_edit_price(${v.id},${selling_price})" type="number" class=" form-control w-100 text-black text-center p-0 mt-1" id="nowprice${id}" value="${selling_price}" style="border: none;border-color: transparent;">
+                                <input onkeyup="table_edit_price(${v.id},${selling_price})" type="number" class=" form-control w-100 text-black text-center p-0 mt-1" id="nowprice${id}" value="${selling_price}" style="border: none;border-color: transparent;" >
                             </td>
 
 
