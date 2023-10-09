@@ -355,7 +355,6 @@ class InventoryController extends Controller
 
 	protected function getUnitList($item_id)
     {
-
 		$units = CountingUnit::where('item_id', $item_id)->whereNull("deleted_at")->get();
 
         try {

@@ -144,6 +144,7 @@ $from_id = session()->get('from')
         var qty = $('#qty').val();
 
         var unit_id =  $( "#counting_unit_select option:selected" ).data('id');
+        console.log(unit_id);
 
         var unit_name =   $( "#counting_unit_select option:selected" ).data('unitname');
         
