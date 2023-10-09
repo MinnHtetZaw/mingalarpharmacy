@@ -82,17 +82,21 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="text-center">
-                                    <address>
-                                        <h5> &nbsp;<b
-                                                                            class="text-center text-black">Marlar Myaing</b>
-                                                                    </h5>
-                                                                    <h6 class="text-black">Specialist Clinic</h6>
-                                                                    <h6 class="text-black">No.6, Marlar Myaing 4th Street, </h6>
-                                                                    <h6 class="text-black">16th Ward, Hlaing Township</h6>
-                                                                    <h6 class="text-black"><i
-                                                                            class="fas fa-mobile-alt"></i> 09765111 728, 09765111729 , </h6>
-                                        <h6>01-654764, 01-654765</h6>
-                                    </address>
+                                    <div>
+                                        <h3 class="mt-1 text-center mb-2"> &nbsp;<b
+                                                style="font-size: 21px;">မင်္ဂလာ ဆေးနှင့် ဆေးပစ္စည်း</b>
+
+                                                {{-- <br/><span>Specialist Clinic</span> --}}
+
+                                        </h3>
+
+                                        <p class="mt-2" style="font-size: 12px;text-align:center;">ဆိုင်အမှတ် (၁) -> ဘောလုံးကွင်းတိုက်တန်း အရှေ့ဘက်၊ ဆိပ်ဖြူမြို့။
+                                            <br/>
+                                            <br/>ဆိုင်အမှတ် (၂) -> စည်ပင်လမ်း၊ ပတ္တမြားဈေးအရှေ့ဘက် ဆိပ်ဖြူမြို့။
+                                            <br />
+                                            <br /><i class="fas fa-mobile-alt"></i> ၀၉ ၄၀၁ ၅၅၆ ၇၇၅, ၀၉ ၉၇၂ ၄၂၈ ၀၈၄
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="pull-right text-left">
 
