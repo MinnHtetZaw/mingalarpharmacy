@@ -1926,6 +1926,7 @@ return view('Admin.fixasset',compact('fixed_asset','done'));
 
     protected function getPurchaseHistory(Request $request){
 
+
         $purchase_lists = Purchase::all();
 
         return view('Purchase.purchase_lists', compact('purchase_lists'));
@@ -1958,8 +1959,9 @@ return view('Admin.fixasset',compact('fixed_asset','done'));
         return view('Purchase.purchase_details', compact('purchase','ph'));
 
     }
-
+////////////////////////
     protected function storePurchaseHistory(Request $request){
+       
         $validator = Validator::make($request->all(), [
             'purchase_vou' => 'required|unique:purchases,purchase_vou',
             'purchase_date' => 'required',
@@ -1968,14 +1970,28 @@ return view('Admin.fixasset',compact('fixed_asset','done'));
             'price' => 'required',
             'qty' => 'required',
         ]);
+        //ziizii
+        $unitIds = $request->unit;
+         $quantities = $request->qty;
 
+    if (count($unitIds) === count($quantities)) {
+    for ($i = 0; $i < count($unitIds); $i++) {
+        $unitId = $unitIds[$i];
+        $qty = $quantities[$i];
+
+        CountingUnit::where('id', $unitId)->update([
+            'current_quantity' => DB::raw('current_quantity + ' . $qty)
+        ]);
+              }
+      } 
+     //ziizii  
         if ($validator->fails()) {
 
             alert()->error("Something Wrong! Validation Error");
 
             return redirect()->back();
         } // Minn Htet ZAw
-
+            
         $user_code = $request->session()->get('user')->id;
 
         $unit = $request->unit;
@@ -1983,12 +1999,16 @@ return view('Admin.fixasset',compact('fixed_asset','done'));
         $price = $request->price;
 
         $qty = $request->qty;
+       
 
         $total_qty = 0;
 
         $total_price = 0;
 
         $psub_total = 0;
+
+        //  
+         
 
         // foreach($price as $p){
         //     foreach($qty as $q){
@@ -2648,6 +2668,8 @@ return view('Admin.fixasset',compact('fixed_asset','done'));
 
     }
     protected function store_itemrequest(Request $request){
+        
+    
 
         $validator = Validator::make($request->all(), [
             'itemrequest_date' => 'required',

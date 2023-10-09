@@ -94,14 +94,13 @@ $from_id = 1;
                     <!-- end header -->
                     <div id="unit_place">
                         <label class="font-weight-bold">Units</label>
-
                     </div>
 
                     <div id="total_amt" class="mt-3">
                         <label class="font-weight-bold text-info">Total Amount - <span class="m-2" id="total_place"></span></label>
                     </div>
 
-                    <input type="button" name="btnsubmit" data-target="#storetotal" data-toggle="modal" class="btnsubmit float-right btn btn-primary" value="Save Unit">
+                    <input type="button" name="btnsubmit" data-target="#storetotal" data-toggle="modal" class="btnsubmit float-right btn btn-primary" value="Save Unit"> 
                     <div class="modal fade" id="storetotal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -310,6 +309,7 @@ $from_id = 1;
     $('#addpurchase').click(function(){
         var now_price = $('#price').val();
         var id=  $( "#counting_unit_select option:selected" ).data('id');
+        // console.log(id);
         var purchaseprice=  $( "#counting_unit_select option:selected" ).data('purchaseprice');
         var normalprice=  $( "#counting_unit_select option:selected" ).data('normalprice');
         var wholeprice=  $( "#counting_unit_select option:selected" ).data('wholeprice');
